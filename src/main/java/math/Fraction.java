@@ -113,8 +113,28 @@ public class Fraction extends Number implements Cloneable {
      * @throws ArithmeticException if the parameter {@code n} is zero
      */
     public Fraction divide(int n) throws ArithmeticException {
-        // TODO (BZNJWP)
+        //BZNJWP
+        if(n == 0){
+            throw new ArithmeticException("Division by zero");
+        }
+
+        if(n>0){
+            if(numerator % n == 0){
+                return new Fraction(numerator/n, denominator);
+            } else {
+                return new Fraction(numerator, denominator*n);
+            }
+        }
+
+        if(n<0){
+            if(numerator % n == 0){
+                return new Fraction(-1*numerator/n, -1*denominator);
+            } else {
+                return new Fraction(-1*numerator, -1*denominator*n);
+            }
+        }
         return null;
+
     }
 
     /**

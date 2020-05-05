@@ -50,8 +50,17 @@ public class FractionTest {
 
     @Test
     public void testDivideInt() {
-        // TODO (BZNJWP)
-        fail();
+        //BZNJWP
+        Fraction f = new Fraction(3, 5);
+        assertFraction(3,10, f.divide(2));
+        assertFraction(-3,10, f.divide(-2));
+        assertFraction(1,5, f.divide(3));
+
+        f = new Fraction(-5, 10);
+        assertFraction(5,30, f.divide(-3));
+
+        ArithmeticException e = assertThrows(ArithmeticException.class, () -> new Fraction(11, 2).divide(0));
+        assertEquals("Division by zero", e.getMessage());
     }
 
     @Test
